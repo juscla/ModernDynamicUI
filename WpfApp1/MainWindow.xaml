@@ -1,0 +1,34 @@
+﻿<controls:HamburgerModernWindow 
+    x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:controls="clr-namespace:ModernControls.Controls;assembly=ModernControls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" ShowHeaderColors="True"
+        Title="MainWindow" Height="350" Width="525" >
+    <controls:HamburgerModernWindow.Options>
+        <controls:SideMenuItem Header="Home"
+                               Style="{StaticResource MenuStyle}"
+                               Icon="{StaticResource FlashIcon}" Page="{x:Null}"  />
+        <controls:SideMenuItem Header="Keyboard" 
+                               Style="{StaticResource MenuStyle}"
+                               Icon="{StaticResource KeyboardIcon}" Page="{StaticResource Keyboard}"/>
+    </controls:HamburgerModernWindow.Options>
+
+    <Grid Background="WhiteSmoke">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <controls:IntegerNumericBox Style="{StaticResource NumericBoxStyle}"   Value="{Binding Value}" Maximum="200" Minimum="100" Step="1"  VerticalAlignment="Center"/>
+       <controls:ModernToggleButton 
+            DeselectedBrush="Orange"
+            SelectedString="WIFI ON" DeselectedString="WIFI OFF" Grid.Column="0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource ModernToggleButtonStyle}" />
+        <Frame Grid.Column="1" x:Name="Frame" NavigationUIVisibility="Hidden" />
+
+        <Button Content="Run Test" Grid.Column="2" Click="RunTest"></Button>
+    </Grid>
+</controls:HamburgerModernWindow>
+
